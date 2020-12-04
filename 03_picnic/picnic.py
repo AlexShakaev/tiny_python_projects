@@ -9,12 +9,12 @@ def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='nargs = +',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+        description="nargs = +", formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
 
-    parser.add_argument('items',
-                        metavar='str',nargs="+",type=str,
-                        help='A positional argument')
+    parser.add_argument(
+        "items", metavar="str", nargs="+", type=str, help="A positional argument"
+    )
 
     # parser.add_argument('-s',
     #                     '--sorted',
@@ -37,10 +37,7 @@ def get_args():
     #                     type=argparse.FileType('rt'),
     #                     default=None)
 
-    parser.add_argument('-s',
-                        '--sorted',
-                        help='A boolean flag',
-                        action='store_true')
+    parser.add_argument("-s", "--sorted", help="A boolean flag", action="store_true")
 
     return parser.parse_args()
 
@@ -51,19 +48,19 @@ def main():
 
     args = get_args()
     list = args.items
-    template = 'You are bringing'
-    #print(args.sorted)
-    #print(list)
+    template = "You are bringing"
+    # print(args.sorted)
+    # print(list)
     if args.sorted:
         list = sorted(list)
-    #print(list)
+    # print(list)
 
     if len(list) == 1:
-        print(template +f" {list[0]}.")
-    elif len(list) ==2:
-        print(template +f" {list[0]} and {list[1]}.")
+        print(template + f" {list[0]}.")
+    elif len(list) == 2:
+        print(template + f" {list[0]} and {list[1]}.")
     else:
-        print(template + f" {', '.join(list[:-1])}, and {list[-1]}.") 
+        print(template + f" {', '.join(list[:-1])}, and {list[-1]}.")
     # str_arg = args.arg
     # int_arg = args.int
     # file_arg = args.file
@@ -78,5 +75,5 @@ def main():
 
 
 # --------------------------------------------------
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
